@@ -589,6 +589,9 @@ func Walk(node Expr, fn WalkFunc) bool {
 		if !Walk(n.SubQuery, fn) {
 			return false
 		}
+		if !Walk(n.AsTableFunction, fn) {
+			return false
+		}
 		if !Walk(n.Comment, fn) {
 			return false
 		}
